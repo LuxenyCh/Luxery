@@ -135,11 +135,14 @@
   <main class="page-main">
     <div class="page-content">
       <div class="main-content">
-        <div class="login-card ">
+        <div class="login-card">
           <div class="login-card-header">
             <header class="login-card__header">
               <h1 class="login-card__logo">
-                  <a href="https://luxeny.cl"><img alt="Logo de Luxeny" id="shop-logo" src="https://cdn.shopify.com/s/files/1/0560/0149/5129/files/logo-luxeny_200x60@2x.png?v=1662517864.webp" /></a>              </h1>
+                <a href="https://luxeny.cl">
+                  <img alt="Logo de Luxeny" id="shop-logo" src="https://cdn.shopify.com/s/files/1/0560/0149/5129/files/logo-luxeny_200x60@2x.png?v=1662517864.webp" />
+                </a>
+              </h1>
             </header>
           </div>
           <div class="login-card__content">
@@ -147,13 +150,73 @@
               <div class="headings-container">
                 <div>
                   <h2 class="ui-heading">Iniciar sesión</h2>
-                  <p id="customer-account-description" class="ui-subheading--subdued ">
-                    Ingresa tu correo electrónico y te enviaremos un código de inicio de sesión
+                  <p id="customer-account-description" class="ui-subheading--subdued">
+                    Ingresa tu correo electrónico y contraseña para acceder
                   </p>
                 </div>
               </div>
+
+              <form id="loginForm" onsubmit="return false;">
+                <div class="ui-form__section">
+                  <!-- Email -->
+                  <div class="ui-form__group polaris-uplift-input-wrapper">
+                    <div class="next-input-wrapper email-input-wrapper">
+                      <label class="next-label helper--visually-hidden" for="email">Correo electrónico</label>
+                      <input type="email" placeholder="Correo electrónico" class="next-input email-typo-input" id="email" required />
+                    </div>
+                  </div>
+
+                  <!-- Password -->
+                  <div class="ui-form__group polaris-uplift-input-wrapper">
+                    <div class="next-input-wrapper password-input-wrapper">
+                      <label class="next-label helper--visually-hidden" for="password">Contraseña</label>
+                      <input type="password" placeholder="Contraseña" class="next-input password-typo-input" id="password" required />
+                    </div>
+                  </div>
+
+                  <!-- Error message -->
+                  <p id="error-message" style="color:#D91C1C; display:none; font-weight: bold; margin-top: 10px;">
+                    Contraseña incorrecta. Inténtelo de nuevo.
+                  </p>
+
+                  <!-- Submit button -->
+                  <button type="button" onclick="validateLogin()" class="ui-button ui-button--primary ui-button--full-width ui-button--size-large login-button">
+                    <span>Continuar</span>
+                  </button>
+                </div>
+              </form>
+
+              <!-- Mensaje personalizado -->
+              <div style="margin-top: 30px;">
+                <p><strong>¡Hola Hellen Alaniz!</strong> Queremos que seas la primera en mostrar nuestro nuevo producto: <strong>Kit Reparación Capilar S.O.S</strong>.</p>
+                <p>Ya está disponible en <strong>Luxeny Cenco Temuco</strong>:</p>
+                <p><em>Portal Temuco</em><br>Av. Alemania 671, Local 6116<br>4800979 Temuco, Araucanía</p>
+                <p>Inicia sesión y entra a la sección <strong>Embajadoras</strong> en nuestra web para más información.</p>
+              </div>
+
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+  function validateLogin() {
+    const password = document.getElementById("password").value;
+    const errorMsg = document.getElementById("error-message");
+
+    if (password !== "luxeny123") {
+      errorMsg.style.display = "block";
+    } else {
+      errorMsg.style.display = "none";
+      alert("¡Inicio de sesión exitoso!");
+      // Aquí puedes redirigir o realizar otra acción
+    }
+  }
+</script>
+
 
 
 
